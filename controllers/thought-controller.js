@@ -42,10 +42,10 @@ const thoughtController = {
         );
       })
       .then((dbUserData) => {
-        // if (!dbUserData) {
-        //   res.status(404).json({ message: "No User with this id" });
-        //   return;
-        // }
+        if (!dbUserData) {
+          res.status(404).json({ message: "Successfully created a thought" });
+          return;
+        }
         res.json(dbUserData);
       })
       .catch((err) => res.json(err));
